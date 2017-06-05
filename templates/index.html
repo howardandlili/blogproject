@@ -1,0 +1,99 @@
+{% extends 'master.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block css %}
+    <link>
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="blog-masthead">
+      <div class="container ">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="">首页</a>
+          <a class="blog-nav-item" href="#">精华</a>
+          <a class="blog-nav-item" href="#">作者</a>
+          <a class="blog-nav-item" href="#">类别</a>
+          <a class="blog-nav-item" href="#">关于</a>
+          <a class="blog-nav-item" href="{% url 'login' %}">登陆</a>
+          <a class="blog-nav-item" href="{% url 'register' %}">注册</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">{{ user }}的博客</h1>
+        <p class="lead blog-description">
+            欢迎来到{{ user }}博客
+        </p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">博客内容</h2>
+            <p class="blog-post-meta">{{ ctime }} <a href="#">关注</a></p>
+          </div><!-- /.blog-post -->
+
+
+          <nav>
+            <ul class="pager">
+              <li><a href="#">上一页</a></li>
+              <li><a href="#">下一页</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>关于</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>档案</h4>
+            <ol class="list-unstyled">
+              <li><a href="{{ post_id }}">{{ created_time }}</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>友情链接</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+{% endblock %}
+
+
+
+
+
+{% block js %}
+    <script>
+        $(function () {
+
+            $('.blog-nav-item').click(function () {
+                $('.blog-nav .active').removeClass('active');
+                $(this).addClass('active');
+                {#标题选择变色#}
+
+            })
+
+        })
+
+    </script>
+{% endblock %}

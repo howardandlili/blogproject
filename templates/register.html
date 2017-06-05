@@ -1,0 +1,12 @@
+{% extends 'master.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h1 class="active">{{ title }}</h1>
+    <form action="register.html" method="post">
+    {% csrf_token %}
+        <input type="text" name="username"/>
+        <input type="password" name="pwd"/>
+        <input type="submit" value="提交"/>
+    </form>
+{% endblock %}
