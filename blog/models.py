@@ -17,7 +17,7 @@ class User(models.Model):
     '定义用户表'
     name = models.CharField(max_length=32)
     pwd = models.CharField(max_length=32)
-
+    cname = models.CharField(max_length=32,blank=True)
 
 class Post(models.Model):
     '定于文章表'

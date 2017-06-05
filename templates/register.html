@@ -2,11 +2,21 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-    <h1 class="active">{{ title }}</h1>
-    <form action="register.html" method="post">
+    <h1>{{ title }}</h1>
+    <form class="form-inline" action="register.html" method="post">
     {% csrf_token %}
-        <input type="text" name="username"/>
-        <input type="password" name="pwd"/>
-        <input type="submit" value="提交"/>
+      <div class="form-group">
+        <label for="exampleInputName2">姓名</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="姓名" name="name">{{ obj.errors.name.0 }}
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail2">密码</label>
+        <input type="password" class="form-control" id="exampleInputEmail2" placeholder="密码" name="pwd">{{ obj.errors.pwd.0 }}
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail2">中文名</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="中文名" name="cname">{{ obj.errors.cname.0 }}
+      </div>
+      <button type="submit" class="btn btn-default">{{ title }}</button>
     </form>
 {% endblock %}
